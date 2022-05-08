@@ -9,7 +9,7 @@ const usersSchema = new mongoose.Schema(
     },
     gender: {
       type: Boolean,
-      default: true,
+      default: true, // true:male, false: female
     },
     avatar: {
       type: String,
