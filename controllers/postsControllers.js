@@ -6,12 +6,17 @@ module.exports = {
   /* GET */
   async getPosts(req, res) {
     try {
-      const postData = await Post.find().populate({
-        path: "editor",
-        select: "nickName avatar"
-      });
+      const { q, sort = 'desc' } = req.query;
+      console.log(req.query.sort)
+      const filter = q ? { content: new RegExp(q) } : {};
+      const postData = await Post.find(filter)
+        .populate({
+          path: "editor",
+          select: "nickName avatar"
+        })
+        .sort({createdAt: sort === 'desc' ? -1 : 1});
       successHandle(res, "取得資料成功", postData);
-    } catch(err) {
+    } catch (err) {
       errorHandle(res, err.message);
     }
   },

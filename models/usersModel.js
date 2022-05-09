@@ -36,7 +36,7 @@ const usersSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "User"
     },
-    createAt: {
+    createdAt: {
       type: Date,
       default: Date.now
     },
