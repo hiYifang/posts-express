@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "f89f2119-47e2-4228-b604-e42984b12fbd",
+		"name": "Exam Express - heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得所有 Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://warm-badlands-99439.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"warm-badlands-99439",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "desc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆 Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"搶到想要的 NFT 啦\",\n    \"image\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://warm-badlands-99439.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"warm-badlands-99439",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增一位 User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nickName\": \"123\",\n    \"email\": \"123qq@gmail.com\",\n    \"password\": \"123qq123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://warm-badlands-99439.herokuapp.com/users/register",
+					"protocol": "https",
+					"host": [
+						"warm-badlands-99439",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
