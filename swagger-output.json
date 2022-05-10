@@ -1,0 +1,198 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MetaWall API",
+    "description": "MetaWall API 文件"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Posts",
+      "description": "貼文"
+    },
+    {
+      "name": "Users",
+      "description": "會員"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [],
+        "summary": " 首頁",
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/register": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/posts/": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "取得全部貼文",
+        "description": "",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "關鍵字",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "排序方式，desc 由新到舊，asc 由舊到新",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功取得資料",
+            "schema": {
+              "$ref": "#/definitions/Posts"
+            }
+          },
+          "400": {
+            "description": "取得資料失敗",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "新增一則貼文",
+        "description": "",
+        "parameters": [
+          {
+            "name": "parameters_name",
+            "in": "body",
+            "description": "貼文資訊",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string",
+                  "example": "貼文內容"
+                },
+                "image": {
+                  "type": "string",
+                  "example": "貼文圖片來源"
+                }
+              },
+              "required": [
+                "content"
+              ]
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功新增貼文",
+            "schema": {
+              "$ref": "#/definitions/Posts"
+            }
+          },
+          "400": {
+            "description": "新增貼文失敗",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Posts": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "editor": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string",
+                    "example": "001"
+                  },
+                  "nickName": {
+                    "type": "string",
+                    "example": "qq"
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "example": "https://..."
+                  }
+                }
+              },
+              "content": {
+                "type": "string",
+                "example": "搶到想要的 NFT 啦"
+              },
+              "image": {
+                "type": "string",
+                "example": "https://..."
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2022-05-09T08:39:25.455Z"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "example": "fail"
+        },
+        "msg": {
+          "type": "object",
+          "properties": {
+            "errors": {
+              "type": "object",
+              "properties": {
+                "field": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "錯誤訊息"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
