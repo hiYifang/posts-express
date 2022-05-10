@@ -19,16 +19,21 @@ const doc = {
   ],
   definitions: {
     Posts: {
-      data: [{
-        editor: {
-          _id: '001',
-          nickName: 'qq',
-          avatar: 'https://...'
-        },
-        content: '搶到想要的 NFT 啦',
-        image: 'https://...',
-        createdAt: '2022-05-09T08:39:25.455Z'
-      }]
+      editor: {
+        _id: '001',
+        nickName: '會員暱稱',
+        avatar: 'https://...'
+      },
+      content: '搶到想要的 NFT 啦',
+      image: 'https://...',
+      createdAt: '2022-05-09T08:39:25.455Z'
+    },
+    Users: {
+      nickName: '會員暱稱',
+      gender: true,
+      avatar: 'https://...',
+      email: 'name@gmail.com',
+      password: 'name1234',
     },
     Error: {
       status: 'fail',
